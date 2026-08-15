@@ -7,7 +7,7 @@ const stack = [
   { name: "MySQL", bg: "bg-[#00758F]/10", border: "border-[#00758F]/30", icon: "🐬" },
   { name: "Tailwind CSS", bg: "bg-[#38BDF8]/10", border: "border-[#38BDF8]/30", icon: "~" },
   { name: "AWS", bg: "bg-[#FF9900]/10", border: "border-[#FF9900]/30", icon: "☁" },
-  { name: "REST API", bg: "bg-violet-500/10", border: "border-violet-500/30", icon: "⚡" },
+  { name: "Google Maps API", bg: "bg-violet-500/10", border: "border-violet-500/30", icon: "G" },
   { name: "Git", bg: "bg-[#F05032]/10", border: "border-[#F05032]/30", icon: "◆" },
 ];
 
@@ -16,7 +16,7 @@ export default function Skills() {
     <section id="skills" className="py-16 px-6 bg-[#0a0a0a] border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <p className="text-violet-400 text-xs font-bold tracking-widest uppercase mb-8">Technology Stack</p>
-        <div className="grid grid-cols-5 md:grid-cols-11 gap-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-10">
           {stack.map((tech) => (
             <div
               key={tech.name}

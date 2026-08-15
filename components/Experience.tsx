@@ -1,5 +1,5 @@
 const stats = [
-  { icon: "🖥", value: "6+", label: "Years Experience" },
+  { icon: "🖥", value: "8+", label: "Years Experience" },
   { icon: "⚡", value: "20+", label: "Projects Delivered" },
   { icon: "🔗", value: "CRM", label: "Systems Built" },
   { icon: "✅", value: "100%", label: "Client Satisfaction" },
