@@ -410,6 +410,8 @@ function ProjectCard({ project, active }: { project: Project; active: boolean })
 
 export default function Projects() {
   const [active, setActive] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const intervalRef = useRef<number | null>(null);
@@ -438,22 +440,50 @@ export default function Projects() {
   };
 
   useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) {
+      if (intervalRef.current !== null) {
+        window.clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      return;
+    }
+
     intervalRef.current = window.setInterval(() => {
-      scrollToIndex(active + 1);
+      setActive((current) => {
+        const next = (current + 1) % projects.length;
+        const node = trackRef.current;
+        const slide = node?.children[next] as HTMLElement | undefined;
+        slide?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+        return next;
+      });
     }, 4500);
 
     return () => {
       if (intervalRef.current !== null) {
         window.clearInterval(intervalRef.current);
-      }
-      if (rafRef.current !== null) {
-        window.cancelAnimationFrame(rafRef.current);
+        intervalRef.current = null;
       }
     };
-  }, [active]);
+  }, [isInView]);
 
   return (
-    <section id="projects" className="border-y border-white/10 bg-[#040713] py-16 sm:py-20">
+    <section ref={sectionRef} id="projects" className="border-y border-white/10 bg-[#040713] py-16 sm:py-20">
       <div className="mx-auto max-w-[1480px] px-5 lg:px-8">
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -491,16 +521,6 @@ export default function Projects() {
           <div
             ref={trackRef}
             onScroll={handleScroll}
-            onMouseEnter={() => {
-              if (intervalRef.current !== null) {
-                window.clearInterval(intervalRef.current);
-              }
-            }}
-            onMouseLeave={() => {
-              intervalRef.current = window.setInterval(() => {
-                scrollToIndex(active + 1);
-              }, 4500);
-            }}
             className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {projects.map((project, index) => (

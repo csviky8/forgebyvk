@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#081024"/>
+      <stop offset="1" stop-color="#111B3D"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset="0.52" stop-color="#818CF8"/>
+      <stop offset="1" stop-color="#C084FC"/>
+    </linearGradient>
+    <linearGradient id="vr" x1="16" y1="18" x2="48" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#C7D2FE"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#bg)"/>
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="17.25" stroke="url(#accent)" stroke-width="1.5" opacity="0.9"/>
+  <circle cx="32" cy="32" r="18" fill="url(#accent)" opacity="0.12"/>
+  <path d="M15 19H24.9L31.8 35.9L38.8 19H49L36 45H28L15 19Z" fill="url(#vr)"/>
+  <path d="M38.2 27.2C38.2 23.6 41.1 21 45 21H49.5C50.9 21 52 22.1 52 23.5C52 24.9 50.9 26 49.5 26H45.6C44.7 26 44 26.7 44 27.6V29.2H49.5C50.9 29.2 52 30.3 52 31.7C52 33.1 50.9 34.2 49.5 34.2H44V45H38.2V27.2Z" fill="url(#vr)"/>
+  <circle cx="46" cy="18" r="3" fill="#FB7185"/>
+</svg>
