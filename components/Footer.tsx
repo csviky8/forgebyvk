@@ -5,7 +5,7 @@ export default function Footer() {
         <span>© 2026 Vignesh R. All rights reserved.</span>
         <span className="text-gray-500">&lt;/&gt;</span>
         <span>
-          Built with <span className="text-red-500">♥</span> and Laravel
+          Built with <span className="text-red-500">♥</span> Forgebyvk
         </span>
       </div>
     </footer>

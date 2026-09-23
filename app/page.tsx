@@ -137,7 +137,15 @@ export default function Home() {
             {navLinks.map((link, index) => (
               <a
                 key={link}
-                href={link === "Home" ? "#home" : `#${link.toLowerCase()}`}
+                href={
+                  link === "Home"
+                    ? "#home"
+                    : link === "Skills"
+                      ? "#skills"
+                      : link === "Experience"
+                        ? "#projects"
+                        : `#${link.toLowerCase()}`
+                }
                 className={`relative transition-colors duration-300 hover:text-white ${
                   index === 0 ? "text-white" : ""
                 }`}
@@ -370,7 +378,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-black/20">
+      <section id="skills" className="border-y border-white/10 bg-black/20">
         <div className="mx-auto max-w-[1380px] px-5 py-12 lg:px-8">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.3em] text-violet-300">Technology Stack</p>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-10">
